@@ -1,0 +1,31 @@
+name: Teste do Site HTML
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-site:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar o repositório
+      uses: actions/checkout@v4
+
+    - name: Instalar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Instalar HTMLHint
+      run: npm install -g htmlhint
+
+    - name: Verificar HTML com HTMLHint
+      run: htmlhint **/*.html
+
+    - name: (Opcional) Instalar CSSLint e validar CSS
+      run: |
+        npm install -g csslint
+        csslint **/*.css || true  # ignora warnings como erro fatal
