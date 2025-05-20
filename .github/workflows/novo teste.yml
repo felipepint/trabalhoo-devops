@@ -2,9 +2,9 @@ name: Teste do Site
 
 on:
   push:
-    branches: [ felipepint-patch-1 ]
+    branches: [ main ]
   pull_request:
-    branches: [ felipepint-patch-1 ]
+    branches: [ main ]
 
 jobs:
   test-site:
