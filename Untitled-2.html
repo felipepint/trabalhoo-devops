@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial JavaScript Interativo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="p-4">
+    <div class="container">
+      <h1 class="mb-4 text-center">Tutorial Interativo de JavaScript</h1>
+
+      <!-- Abas de navegação -->
+      <ul class="nav nav-tabs" id="jsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="sintaxe-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sintaxe"
+            type="button"
+            role="tab"
+          >
+            Sintaxe
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="funcoes-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#funcoes"
+            type="button"
+            role="tab"
+          >
+            Funções
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="dom-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#dom"
+            type="button"
+            role="tab"
+          >
+            DOM
+          </button>
+        </li>
+      </ul>
+
+      <!-- Conteúdo das abas -->
+      <div class="tab-content" id="jsTabsContent">
+        <!-- Aba Sintaxe -->
+        <div class="tab-pane fade show active" id="sintaxe" role="tabpanel">
+          <h3>1. Declaração de Variáveis</h3>
+          <pre><code>let nome = "João";
+const idade = 25;
+var ativo = true;</code></pre>
+
+          <h3>2. Tipos de Dados</h3>
+          <ul>
+            <li><strong>String</strong>: "texto"</li>
+            <li><strong>Number</strong>: 10, 3.14</li>
+            <li><strong>Boolean</strong>: true, false</li>
+            <li><strong>Array</strong>: [1, 2, 3]</li>
+            <li><strong>Object</strong>: { nome: "Ana", idade: 30 }</li>
+          </ul>
+
+          <h3>3. Operadores</h3>
+          <pre><code>// Aritméticos
+let soma = 5 + 3;
+let produto = 4 * 2;
+
+// Comparação
+5 > 3      // true
+5 === "5"  // false
+
+// Lógicos
+true && false  // false
+true || false  // true</code></pre>
+
+          <h3>4. Condicionais</h3>
+          <pre><code>const idade = 18;
+if (idade >= 18) {
+  console.log("Você é maior de idade.");
+} else {
+  console.log("Você é menor de idade.");
+}</code></pre>
+
+          <h3>5. Loops</h3>
+          <pre><code>// Loop for
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// Loop while
+let x = 0;
+while (x < 3) {
+  console.log("x é " + x);
+  x++;
+}</code></pre>
+
+          <h3>6. Arrays e Métodos</h3>
+          <pre><code>const frutas = ["maçã", "banana", "laranja"];
+frutas.push("uva");
+frutas.pop();
+console.log(frutas.length);</code></pre>
+
+          <h3>7. Objetos</h3>
+          <pre><code>const pessoa = {
+  nome: "Carlos",
+  idade: 30,
+  saudacao: function() {
+    return "Olá, " + this.nome;
+  }
+};
+
+console.log(pessoa.nome);
+console.log(pessoa.saudacao());</code></pre>
+        </div>
+
+        <!-- Aba Funções -->
+        <div class="tab-pane fade" id="funcoes" role="tabpanel">
+          <h3>Função Declarada</h3>
+          <pre><code>function saudacao(nome) {
+  return "Olá, " + nome + "!";
+}</code></pre>
+
+          <div class="mb-3">
+            <label for="nomeInput" class="form-label">Digite seu nome:</label>
+            <input type="text" id="nomeInput" class="form-control" />
+            <button onclick="mostrarSaudacao()" class="btn btn-primary mt-2">
+              Saudar
+            </button>
+            <p id="saida" class="mt-2"></p>
+          </div>
+
+          <h3>Arrow Function</h3>
+          <pre><code>const dobro = x => x * 2;</code></pre>
+
+          <h3>Função como parâmetro</h3>
+          <pre><code>function calcular(a, b, operacao) {
+  return operacao(a, b);
+}
+
+console.log(calcular(4, 2, (x, y) => x * y));</code></pre>
+        </div>
+
+        <!-- Aba DOM -->
+        <div class="tab-pane fade" id="dom" role="tabpanel">
+          <h3>Manipulando o DOM</h3>
+          <pre><code>const el = document.getElementById("demo");
+el.innerText = "Novo texto!";</code></pre>
+
+          <p id="demo">Texto original</p>
+          <button onclick="alterarTexto()" class="btn btn-success">
+            Alterar Texto
+          </button>
+
+          <h3 class="mt-4">Eventos</h3>
+          <button id="botaoEvento" class="btn btn-warning">Clique aqui</button>
+          <p id="mensagemEvento"></p>
+
+          <h3 class="mt-4">Criar Elementos</h3>
+          <pre><code>const novo = document.createElement("p");
+novo.innerText = "Elemento criado com JS";
+document.body.appendChild(novo);</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<!-- Exemplo de elementos para eventos -->
+<p id="mensagem"></p>
+<button id="btnClique" onclick="alterarCorBotao()">Clique Aqui</button>
+
+<!-- Exemplo de contagem de caracteres -->
+<input type="text" id="textoInput" oninput="contarCaracteres()" />
+<p id="contador">Número de caracteres: 0</p>
+
+<!-- Exemplo de formulário de validação -->
+<input type="text" id="nome" />
+<button id="btnEnviar">Enviar</button>
+<p id="resultadoValidador"></p>
+
+<!-- Exemplo de cálculo de fatorial -->
+<input type="number" id="numeroFatorial" oninput="calcularFatorial()" />
+<p id="resultadoFatorial"></p>
+
+<!-- Exemplo de calculadora simples -->
+<input type="number" id="num1" placeholder="Número 1" />
+<input type="number" id="num2" placeholder="Número 2" />
+<button id="btnSomar">Somar</button>
+<button id="btnSubtrair">Subtrair</button>
+<button id="btnMultiplicar">Multiplicar</button>
+<button id="btnDividir">Dividir</button>
+<p id="resultadoCalculadora"></p>
